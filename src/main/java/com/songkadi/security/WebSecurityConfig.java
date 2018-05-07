@@ -25,12 +25,17 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     public void configure(WebSecurity web) throws Exception {
-        web.ignoring().antMatchers("/login", "/h2-console/**", "/swagger*");
+        web.ignoring()
+                .antMatchers("/login",
+                        "/h2-console/**",
+                        "/swagger*");
     }
 
     @Override
     public void configure(HttpSecurity http) throws Exception {
-        http.antMatcher("/gigy/**").authorizeRequests().anyRequest().authenticated();
+        http
+                .antMatcher("/gigy/**").authorizeRequests()
+                .anyRequest().authenticated();
     }
 
     @Bean
